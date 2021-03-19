@@ -1,20 +1,28 @@
 import React from "react";
+import "./ModalShow.css";
 
 const ShowImage = (props) => {
-    return ( 
-        <>
-           <div
+  const Style = {
+    backgroundColor: "#ffeaf5"
+  }
+
+  return (
+    <>
+            {/* Modal for image showing */}
+      <div
         class="modal fade"
         id="exampleModalCenter"
         tabindex="-1"
         role="dialog"
-        aria-labelledby="exampleModalCenterTitle"
+        aria-labelledby="exampleModalLabel"
         aria-hidden="true"
-        data-backdrop="static"
-        data-keyboard="false"
       >
-        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-          <div class="modal-content">
+        <div
+          class="modal-dialog modal-dialog-centered modal-lg"
+          role="document"
+          
+        >
+          <div class="modal-content" style={Style}>
             <div style={{ border: "none" }} class="modal-header">
               <button
                 id="close"
@@ -26,15 +34,20 @@ const ShowImage = (props) => {
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body">
-              <img style={{width:"100%", height:"600px"}} src={props.Src} alt="Image" />
+            <div  class="modal-body text-center p-0 m-0">
+                    {/* porps for dynamic image src */}
+              <img
+                id="Image"
+                src={props.Src}
+                alt="Gallery"
+              />
             </div>
             <div style={{ border: "none" }} class="modal-footer"></div>
           </div>
         </div>
       </div>
-        </>
-     );
-}
- 
+    </>
+  );
+};
+
 export default ShowImage;

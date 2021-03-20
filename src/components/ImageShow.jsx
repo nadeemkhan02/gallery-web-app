@@ -1,5 +1,5 @@
 import React from "react";
-import "./ModalShow.css";
+import "../ModalShow.css";
 
 const ShowImage = (props) => {
   const Style = {
@@ -10,31 +10,31 @@ const ShowImage = (props) => {
     <>
             {/* Modal for image showing */}
       <div
-        class="modal fade"
+        className="modal fade"
         id="exampleModalCenter"
-        tabindex="-1"
+        tabIndex="-1"
         role="dialog"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
         <div
-          class="modal-dialog modal-dialog-centered modal-lg"
+          className="modal-dialog modal-dialog-centered modal-lg"
           role="document"
           
         >
-          <div class="modal-content" style={Style}>
-            <div style={{ border: "none" }} class="modal-header">
+          <div className="modal-content" style={Style}>
+            <div style={{ border: "none" }} className="modal-header">
               <button
                 id="close"
                 type="button"
-                class="close"
+                className="close"
                 data-dismiss="modal"
                 aria-label="Close"
               >
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div  class="modal-body text-center p-0 m-0">
+            <div  className="modal-body text-center p-0 m-0">
                     {/* porps for dynamic image src */}
               <img
                 id="Image"
@@ -42,7 +42,7 @@ const ShowImage = (props) => {
                 alt="Gallery"
               />
             </div>
-            <div style={{ border: "none" }} class="modal-footer"></div>
+            <div style={{ border: "none" }} className="modal-footer"></div>
           </div>
         </div>
       </div>

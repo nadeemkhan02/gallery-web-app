@@ -1,0 +1,16 @@
+#Image{
+    width: 600px;
+    border: 0.2em solid #332D2A;
+    box-shadow: 3px 3px 8px 0px rgba(0, 0, 255, 0.3);
+}
+
+
+
+/* all media query for mobile responsive (between 1 - 500px display) */
+@media only screen and (max-width:500px){
+    #Image{
+        width: 100%;
+        border: 0.2em solid #332D2A;
+        box-shadow: 3px 3px 8px 0px rgba(0, 0, 255, 0.3);
+    }
+}

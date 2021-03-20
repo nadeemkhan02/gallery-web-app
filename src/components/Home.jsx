@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import ImageShow from "./ImageShow";
+import http from "./HttpServices";
+import ImagesData from "../Api.jsx";
+import Loading from "../assets/loading.gif"
 import "../index.css";
+import "../loader.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.js";
 
@@ -12,7 +15,7 @@ const Home = () => {
     const [images, setImages] = useState()
     const [show, setShow] = useState()
 
-    // function for handle shoew
+    // function for handle show
     const handleClick = (e) => {
         setShow(e)
     }
@@ -22,9 +25,8 @@ const Home = () => {
 
         //async function for api call
         const getData = async () => {
-            const Images = await axios.get('https://www.mocky.io/v2/5ecb5c353000008f00ddd5a0');
+            const Images = await http.get(ImagesData);
             setImages(Images.data)
-            console.log(Images.data)
         }
         getData()
     }, [])
@@ -32,11 +34,14 @@ const Home = () => {
     //returning dom elements
     return (
         <>
+            {!images &&
+             <img id="loader" src={Loading} alt="loader" />
+            }
             <div id="gallery">
                 {images &&
                     images.map((e) =>
-                        <>
-                            <img onClick={() => handleClick(e.urls.raw)} data-toggle="modal" data-target="#exampleModalCenter" src={e.urls.raw} alt="images" />
+                        <> 
+                            <img key={e.id} onClick={() => handleClick(e.urls.raw)} data-toggle="modal" data-target="#exampleModalCenter" src={e.urls.raw} alt="images" />
                         </>
                     )
                 }
